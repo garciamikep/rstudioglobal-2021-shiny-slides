@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>R in Pharma: Intro to Shiny</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Instructor: Mike Garcia" />
+    <meta name="author" content="TAs: Phil Bowsher, Kevin Bolger, Justin Lam, Carlos Gomez" />
+    <script src="Shiny-Intro-RStudioGlobal2021_files/header-attrs/header-attrs.js"></script>
+    <link href="Shiny-Intro-RStudioGlobal2021_files/remark-css/default.css" rel="stylesheet" />
+    <link href="Shiny-Intro-RStudioGlobal2021_files/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R in Pharma: Intro to Shiny
+### Instructor: Mike Garcia
+### TAs: Phil Bowsher, Kevin Bolger, Justin Lam, Carlos Gomez
+### Jan 19, 2021
+
+---
+
+class: center, inverse, middle
+background-image: url("procogia.png")
+background-position: center
+background-size: contain
+
+
+
+
+# Overview &amp; Expectations
+  
+#### Workshop Goal: 
+  
+1. Understand what Shiny is
+
+2. Basic structure of a Shiny application
+
+3. How to make your own Shiny app 
+
+---
+  
+### Assumptions: 
+  
+- Some familiarity with basic R programming
+- Defining and calling functions
+- Loading datasets and packages
+- No Shiny/HTML/JavaScript background assumed
+- `ggplot`: not essential, but helpful
+  - examples will use ggplot
+  - Base `R` plotting can be used in Shiny
+
+---
+  
+### Best laid plans...
+  
+| Time   | Module                   |   Style                  |   Goals                   | 
+|: ---- :|: --------------------- :|: ----------------------- :|: ----------------------- :|
+| 10 min | `shiny::welcome`        | Slides                    |                           | 
+| 10 min | `shiny::warmUp`         | Demo                      | ggplot review             |
+| 20 min | `shiny::getStarted`     | Demo + Interactive coding | Build a basic shiny app   | 
+| 30 min | `shiny::fancyApp`       | Demo + Interactive coding | Build a more complex app  | 
+| 20 min | `shiny::flexdashboard`  | Demo                      | Shiny in flexdashboard    | 
+  
+  
+---
+class: center, inverse, middle
+
+# What is Shiny?
+
+--
+
+&gt; Framework that allows R users to create interactive web apps without knowing anything* about web design. 
+
+--
+
+&gt; *Ok, a small amount of basic web design is helpful
+---
+# Web design in 1 slide
+
+Shiny abstracts away the key technologies underlying modern web design:
+
+--
+
+#### HTML
+
+- Hypertext Markup Language
+- building blocks of web pages
+- Structured documents that your web browser can interpret
+
+--
+
+#### CSS
+
+- Cascading style sheets
+- Separation of content (HTML) and styling (CSS)
+- Used to describe formatting, look and feel of an web page
+
+--
+
+#### JavaScript
+
+- Scripting language 
+- Enables interactive web pages
+- Usually executed within a users web browser
+
+
+---
+class: center, inverse, middle
+# Wrap-up
+
+---
+
+### We've covered:
+
+- What Shiny is
+- Basic structure of a Shiny app
+- Making your R code interactive
+- `flexdashboard` package
+- Incorporating Shiny apps into `flexdashboard`
+
+
+---
+class: center, inverse, middle
+
+# What's next?
+
+
+---
+
+## How do I share my app?
+
+### shinyapps.io
+
+- Hosted service by RStudio
+- Free basic plan, subscription for more features/authentication
+- Very easy to use and deploy your work publicly 
+
+--
+
+### RStudio Connect
+
+- Publishing platform for teams
+- Part of RStudio's enterprise level solutions
+
+--
+
+### Host it yourself
+
+- Or host it yourself on your own servers
+- Requires specialized knowledge
+
+---
+### Resources
+
+
+#### R
+
+- RStudio Education: [https://education.rstudio.com/learn/](https://education.rstudio.com/learn/)
+- R for Data Science: [https://r4ds.had.co.nz/](https://r4ds.had.co.nz/)
+ 
+#### Shiny 
+
+- Shiny tutorials: [https://shiny.rstudio.com/tutorial/](https://shiny.rstudio.com/tutorial/)
+- RStudio Webinars: [https://rstudio.com/resources/webinars/](https://rstudio.com/resources/webinars/) 
+- Mastering Shiny: [https://mastering-shiny.org/](https://mastering-shiny.org/), 
+- Shiny Documentation: [https://shiny.rstudio.com/](https://shiny.rstudio.com/)
+- Engineering Production-Grade Shiny Apps: [https://engineering-shiny.org/](https://engineering-shiny.org/)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+---
+title: "R in Pharma: Intro to Shiny"
+author: 
+  - "Instructor: Mike Garcia"
+  - "TAs: Phil Bowsher, Kevin Bolger, Justin Lam, Carlos Gomez"
+date: 'Jan 19, 2021'
+output:
+  xaringan::moon_reader:
+  lib_dir: libs
+nature:
+  highlightStyle: github
+highlightLines: true
+countIncrementalSlides: false
+---
+class: center, inverse, middle
+background-image: url("procogia.png")
+background-position: center
+background-size: contain
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(emo)
+```
+
+
+# Overview & Expectations
+  
+#### Workshop Goal: 
+  
+1. Understand what Shiny is
+
+2. Basic structure of a Shiny application
+
+3. How to make your own Shiny app 
+
+---
+  
+### Assumptions: 
+  
+- Some familiarity with basic R programming
+- Defining and calling functions
+- Loading datasets and packages
+- No Shiny/HTML/JavaScript background assumed
+- `ggplot`: not essential, but helpful
+  - examples will use ggplot
+  - Base `R` plotting can be used in Shiny
+
+---
+  
+### Best laid plans...
+  
+| Time   | Module                   |   Style                  |   Goals                   | 
+|: ---- :|: --------------------- :|: ----------------------- :|: ----------------------- :|
+| 10 min | `shiny::welcome`        | Slides                    |                           | 
+| 10 min | `shiny::warmUp`         | Demo                      | ggplot review             |
+| 20 min | `shiny::getStarted`     | Demo + Interactive coding | Build a basic shiny app   | 
+| 30 min | `shiny::fancyApp`       | Demo + Interactive coding | Build a more complex app  | 
+| 20 min | `shiny::flexdashboard`  | Demo                      | Shiny in flexdashboard    | 
+  
+  
+---
+class: center, inverse, middle
+
+# What is Shiny?
+
+--
+
+> Framework that allows R users to create interactive web apps without knowing anything* about web design. 
+
+--
+
+> *Ok, a small amount of basic web design is helpful
+---
+# Web design in 1 slide
+
+Shiny abstracts away the key technologies underlying modern web design:
+
+--
+
+#### HTML
+
+- Hypertext Markup Language
+- building blocks of web pages
+- Structured documents that your web browser can interpret
+
+--
+
+#### CSS
+
+- Cascading style sheets
+- Separation of content (HTML) and styling (CSS)
+- Used to describe formatting, look and feel of an web page
+
+--
+
+#### JavaScript
+
+- Scripting language 
+- Enables interactive web pages
+- Usually executed within a users web browser
+
+
+---
+class: center, inverse, middle
+# Wrap-up
+
+---
+
+### We've covered:
+
+- What Shiny is
+- Basic structure of a Shiny app
+- Making your R code interactive
+- `flexdashboard` package
+- Incorporating Shiny apps into `flexdashboard`
+
+
+---
+class: center, inverse, middle
+
+# What's next?
+
+
+---
+
+## How do I share my app?
+
+### shinyapps.io
+
+- Hosted service by RStudio
+- Free basic plan, subscription for more features/authentication
+- Very easy to use and deploy your work publicly 
+
+--
+
+### RStudio Connect
+
+- Publishing platform for teams
+- Part of RStudio's enterprise level solutions
+
+--
+
+### Host it yourself
+
+- Or host it yourself on your own servers
+- Requires specialized knowledge
+
+---
+### Resources
+
+
+#### R
+
+- RStudio Education: [https://education.rstudio.com/learn/](https://education.rstudio.com/learn/)
+- R for Data Science: [https://r4ds.had.co.nz/](https://r4ds.had.co.nz/)
+ 
+#### Shiny 
+
+- Shiny tutorials: [https://shiny.rstudio.com/tutorial/](https://shiny.rstudio.com/tutorial/)
+- RStudio Webinars: [https://rstudio.com/resources/webinars/](https://rstudio.com/resources/webinars/) 
+- Mastering Shiny: [https://mastering-shiny.org/](https://mastering-shiny.org/), 
+- Shiny Documentation: [https://shiny.rstudio.com/](https://shiny.rstudio.com/)
+- Engineering Production-Grade Shiny Apps: [https://engineering-shiny.org/](https://engineering-shiny.org/)
