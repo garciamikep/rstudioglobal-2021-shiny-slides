@@ -21,7 +21,6 @@ background-size: contain
 options(htmltools.dir.version = FALSE)
 library(emo)
 ```
-
 ---
 
 # Overview & Expectations
@@ -33,6 +32,10 @@ library(emo)
 2. Basic structure of a Shiny application
 
 3. How to make your own Shiny app 
+
+.footnote[
+Live workshop recording can be found [here](https://www.youtube.com/watch?v=eoeLn8SyDW8)
+]
 
 ---
   
